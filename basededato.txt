@@ -1,0 +1,46 @@
+-- Crear la base de datos
+CREATE DATABASE bienesraices_crud 
+
+-- Seleccionar la base de datos
+USE bienesraices_crud;
+
+-- Tabla: usuarios
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(255),
+    password VARCHAR(255)
+);
+
+-- Tabla: vendedores
+CREATE TABLE vendedores (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(255),
+    apellido VARCHAR(255),
+    email VARCHAR(255),
+    telefono VARCHAR(20)
+);
+
+-- Tabla: propiedades
+CREATE TABLE propiedades (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(255),
+    descripcion LONGTEXT,
+    precio DECIMAL(10,2),
+    habitaciones INT,
+    imagen VARCHAR(255),
+    creado DATE,
+    vendedorId INT,
+    INDEX (vendedorId),
+    FOREIGN KEY (vendedorId) REFERENCES vendedores(id) ON DELETE SET NULL
+);
+
+-- Tabla: blogs
+CREATE TABLE blogs (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    descripcion LONGTEXT,
+    imagen VARCHAR(255),
+    creado DATE,
+    usuarioId INT,
+    INDEX (usuarioId),
+    FOREIGN KEY (usuarioId) REFERENCES usuarios(id) ON DELETE SET NULL
+);

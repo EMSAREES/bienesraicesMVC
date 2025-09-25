@@ -1,0 +1,24 @@
+{
+    "name": "emili/bienesraices",
+    "description": "Creando un proyecto con programacion POO",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Emili\\Bienesraices\\": "src/",
+            "Model\\": "./models",
+            "MVC\\": "./",
+            "Controllers\\": "./controllers"
+        }
+    },
+    "authors": [
+        {
+            "name": "EMSAREES",
+            "email": "lobomategamer@gmail.com"
+        }
+    ],
+    "require": {
+        "intervention/image": "^3.11",
+        "phpmailer/phpmailer": "^6.10",
+        "vlucas/phpdotenv": "^5.6"
+    }
+}
